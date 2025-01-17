@@ -97,17 +97,6 @@ describe('AuthService', () => {
     await expect(authService.routeAuth(Provider.LOCAL, dto)).rejects.toThrow('Invalid user name or password');
   });
 
-//   it('should throw error if user is not activated', async () => {
-//     const user = { activated: false, password: 'hashedpassword' };
-//     usersService.getUserByEmail.mockResolvedValue(user as any);
-//     (AuthChecker as any).comparePassword.mockReturnValue(true); // Retorna true para passar pela verificação de senha
-//     const dto = new LoginUserDto();
-//     dto.email = 'test@example.com';
-//     dto.password = 'correctpassword';
-
-//     await expect(authService.routeAuth(Provider.LOCAL, dto)).rejects.toThrow('User is not activated');
-//   });
-
   it('should return jwt if provider is not LOCAL and user is authenticated', async () => {
     const user = { id: '123', email: 'test@example.com' };
     const loginOrRegisterProvider = jest.spyOn(authService as any, 'loginOrRegisterProvider').mockResolvedValue(user);
