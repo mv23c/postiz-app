@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "npx nx run-many --target=serve --projects=frontend,backend,workers --parallel=4",
+    "test": "jest --coverage",
     "dev:stripe": "npx concurrently \"stripe listen --forward-to localhost:3000/stripe\" \"npm run dev\"",
     "build": "npx nx run-many --target=build --projects=frontend,backend,workers,cron",
     "build:frontend": "npx nx run frontend:build:production",
@@ -105,6 +106,7 @@
     "copy-to-clipboard": "^3.3.3",
     "crypto-hash": "^3.0.0",
     "dayjs": "^1.11.10",
+    "dotenv": "^16.4.7",
     "google-auth-library": "^9.11.0",
     "googleapis": "^137.1.0",
     "ioredis": "^5.3.2",
